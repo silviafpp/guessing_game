@@ -1,10 +1,14 @@
 #include <iostream>
 #include <cstdlib>  //para usar o rand() - funcao
+#include <time.h>
 using namespace std;
 
 int main() {
     int tentativas = 0;
     int palpite;
+
+    srand(time(0));
+    
     int numeroSecreto = rand() % 100 + 1; 
 
     while (true) {
@@ -21,3 +25,4 @@ int main() {
             break; 
         }
     }
+}
