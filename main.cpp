@@ -4,20 +4,23 @@
 using namespace std;
 
 int main() {
+    int maxTentativas; 
     int tentativas = 0;
     int palpite;
     string name;
-    srand(time(0)); // Seed the random number generator
+    srand(time(0)); 
 
     int numeroSecreto = rand() % 100 + 1;
 
     cout << "Insira o seu nome antes de jogar: ";
     cin >> name;
+    cout << "Insere o número de tentativas: ";
+    cin >> maxTentativas;
 
-    while (true) {
+    while (tentativas < maxTentativas) { 
         cout << "Tente adivinhar o numero (entre 1 e 100): ";
         cin >> palpite;
-        tentativas++; // Increase the value of "tentativas"
+        tentativas++; 
 
         if (palpite < numeroSecreto) {
             cout << "O numero e muito baixo, tente novamente." << endl;
@@ -27,6 +30,10 @@ int main() {
             cout << "Parabéns " << name << " acertou no número em " << tentativas << " tentativas!" << endl;
             break;
         }
+    }
+
+    if (tentativas >= maxTentativas) {
+        cout << "Suas " << maxTentativas << " tentativas acabaram. O número secreto era: " << numeroSecreto << endl;
     }
 
     return 0;
